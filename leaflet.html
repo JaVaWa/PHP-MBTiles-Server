@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
 </head>
 <body>
-	<a href="https://github.com/bmcbride/PHP-MBTiles-Server"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+	<a href="https://github.com/JaVaWa/PHP-MBTiles-Server"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 	<div id="map" style="width: 600px; height: 400px"></div>
 	<p>This example demonstrates the ability to view layers from an <a href="https://github.com/mapbox/mbtiles-spec" target="_blank">MBTiles</a> sqlite database file.</p>
     <p>
@@ -42,7 +42,6 @@
 		});
 
 		var mbTiles = new L.tileLayer('mbtiles.php?db=geography-class.mbtiles&z={z}&x={x}&y={y}', {
-		    tms: true,
 		    attribution: 'Tiles Courtesy of <a href="http://tiles.mapbox.com/mapbox/map/geography-class" target="_blank">MapBox</a>',
 		    opacity: 0.7
 		});
