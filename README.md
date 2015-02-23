@@ -17,7 +17,7 @@ Forked from https://github.com/bmcbride/PHP-MBTiles-Server
 ```
 sampleLayer = L.tileLayer('mbtiles.php?layer={filename-without-extension}&z={z}&x={x}&y={y}').addTo(map);
 
-utfgridLayer = new L.UtfGrid('utfgrid.php?layer={filename-without-extension}&z={z}&x={x}&y={y}?callback={cb}', {resolution: 4});
+utfgridLayer = new L.UtfGrid('utfgrid.php?layer={filename-without-extension}&z={z}&x={x}&y={y}&callback={cb}', {resolution: 4});
 
 map.addLayer(utfgridLayer);
 
