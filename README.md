@@ -41,10 +41,11 @@ utfgridLayer.on('mouseout', function (e) {
 ### Adapting .htaccess for nicer URLs
 
 Add the following to an .htaccess file:
-
-`RewriteEngine On
-`RewriteRule ^tiles/(.+)/(.+)/(.+)/(.+)\.png$ /tiles/mbtiles.php?layer=$1&z=$2&x=$3&y=$4 [L]
-`RewriteRule ^tiles/(.+)/(.+)/(.+)/(.+)\.grid\.json$ /tiles/utfgrid.php?layer=$1&z=$2&x=$3&y=$4 [QSA,L]
+```
+RewriteEngine On
+RewriteRule ^tiles/(.+)/(.+)/(.+)/(.+)\.png$ /tiles/mbtiles.php?layer=$1&z=$2&x=$3&y=$4 [L]
+RewriteRule ^tiles/(.+)/(.+)/(.+)/(.+)\.grid\.json$ /tiles/utfgrid.php?layer=$1&z=$2&x=$3&y=$4 [QSA,L]
+```
 
 Now you can use a URLs like
 
