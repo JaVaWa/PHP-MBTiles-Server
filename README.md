@@ -49,11 +49,11 @@ RewriteRule ^tiles/(.+)/(.+)/(.+)/(.+)\.grid\.json$ /tiles/utfgrid.php?layer=$1&
 
 Now you can use a URLs like
 
-/tiles/{layer}/{z}/{x}/{y}.png
+`/tiles/{layer}/{z}/{x}/{y}.png`
 
 and
 
-/tiles/{layer}/{z}/{x}/{y}.grid.json?callback={cb}
+`/tiles/{layer}/{z}/{x}/{y}.grid.json?callback={cb}`
 
 ### Note
 
