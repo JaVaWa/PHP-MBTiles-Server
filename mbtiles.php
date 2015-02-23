@@ -1,5 +1,5 @@
 <?php
-$expires = 86400;
+$expires = 86400; // cache images for 24 hours
 header ('Pragma: public');
 header ('Cache-Control: maxage=' . $expires);
 header ('Expires: ' . gmdate('D, d M Y H:i:s', time() + $expires) . ' GMT');
