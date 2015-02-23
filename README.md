@@ -21,19 +21,19 @@ utfgridLayer = new L.UtfGrid('utfgrid.php?layer={filename-without-extension}&z={
 
 map.addLayer(utfgridLayer);
 
-utfgridLayer.on('click', function (e) {
+utfgridLayer.on('click', function(e) {
   if (e.data) {
     //add code to do something when clicking the feature
   }
 });
 
-utfgridLayer.on('mouseover', function (e) {
+utfgridLayer.on('mouseover', function(e) {
   if (e.data) {
 			//add code to show something like a label on mouseover
 		}
 });
 
-utfgridLayer.on('mouseout', function (e) {
+utfgridLayer.on('mouseout', function(e) {
   //add code to hide/remove the label
 });
 ```
