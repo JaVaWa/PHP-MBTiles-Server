@@ -39,6 +39,7 @@ utfgridLayer.on('mouseout', function(e) {
 ```
 
 ### Adapting .htaccess for nicer URLs
+(optional)
 
 Add the following to an .htaccess file:
 ```
