@@ -2,10 +2,8 @@
 $zoom = intval ($_GET['z']);
 $column = intval ($_GET['x']);
 $row = pow (2, $zoom) - 1 - intval ($_GET['y']);
-$layer = $_GET['layer'];
-if (!$zoom || !$column || !$row || !$layer) exit();
 header ('Content-Type: text/javascript; charset=UTF-8');
-$db = new PDO ('sqlite:' . $layer . '.mbtiles');
+$db = new PDO ('sqlite:' . $_GET['layer'] . '.mbtiles');
 $data = $db->prepare ('SELECT grid FROM grids WHERE zoom_level=' . $zoom . ' AND tile_column=' . $column . ' AND tile_row=' . $row);
 $data->execute();
 $grid = $data->fetchObject();
