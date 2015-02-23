@@ -13,8 +13,9 @@ $data->execute();
 $png = $data->fetchObject();
 if (isset ($png->tile_data)) {
 	echo $png->tile_data;
-//To handle requests outside the area that the mbtiles file covers, add a png file with a width and height of 
-//256 pixels, and uncomment the next two lines:
+// To handle requests outside the area that the mbtiles file covers,
+// add a blank png file with a width and height of 256 pixels
+// and uncomment the next two lines:
 //} else {
 //	readfile ('256x256.png');
 }
