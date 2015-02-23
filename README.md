@@ -14,28 +14,29 @@ Forked from https://github.com/bmcbride/PHP-MBTiles-Server
 - [PHP with PDO_SQLITE enabled](http://php.net/manual/en/ref.pdo-sqlite.php)
 
 ### Usage
+```
+sampleLayer = L.tileLayer('mbtiles.php?layer={filename-without-extension}&z={z}&x={x}&y={y}').addTo(map);
 
-`sampleLayer = L.tileLayer('mbtiles.php?layer={filename-without-extension}&z={z}&x={x}&y={y}').addTo(map);
+utfgridLayer = new L.UtfGrid('utfgrid.php?layer={filename-without-extension}&z={z}&x={x}&y={y}?callback={cb}', {resolution: 4});
 
-`utfgridLayer = new L.UtfGrid('utfgrid.php?layer={filename-without-extension}&z={z}&x={x}&y={y}?callback={cb}', {resolution: 4});
+map.addLayer(utfgridLayer);
 
-`map.addLayer(utfgridLayer);
+utfgridLayer.on('click', function (e) {
+  if (e.data) {
+    //add code to do something when clicking the feature
+  }
+});
 
-`utfgridLayer.on('click', function (e) {
-`  if (e.data) {
-`    //add code to do something when clicking the feature
-`  }
-`});
+utfgridLayer.on('mouseover', function (e) {
+  if (e.data) {
+			//add code to show something like a label on mouseover
+		}
+});
 
-`utfgridLayer.on('mouseover', function (e) {
-`  if (e.data) {
-`			//add code to show something like a label on mouseover
-`		}
-`});
-
-`utfgridLayer.on('mouseout', function (e) {
-`  //add code to hide/remove the label
-`});
+utfgridLayer.on('mouseout', function (e) {
+  //add code to hide/remove the label
+});
+```
 
 ### Adapting .htaccess for nicer URLs
 
