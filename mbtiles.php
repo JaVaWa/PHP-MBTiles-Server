@@ -1,31 +1,21 @@
 <?php
-$zoom = $_GET['z'];
-$column = $_GET['x'];
-$row = $_GET['y'];
-$db = $_GET['db'];
-  try
-  {
-    // Open the database
-    $conn = new PDO("sqlite:$db");
-
-    // Query the tiles view and echo out the returned image
-	$sql = "SELECT * FROM tiles WHERE zoom_level = $zoom AND tile_column = $column AND tile_row = $row";
-	$q = $conn->prepare($sql);
-	$q->execute();
-
-	$q->bindColumn(1, $zoom_level);
-	$q->bindColumn(2, $tile_column);
-	$q->bindColumn(3, $tile_row);
-	$q->bindColumn(4, $tile_data, PDO::PARAM_LOB);
-
-	while($q->fetch())
-	{
-	header("Content-Type: image/png");
-	echo $tile_data;
-	}
-  }
-  catch(PDOException $e)
-  {
-    print 'Exception : '.$e->getMessage();
-  }
+$expires = 86400;
+header ('Pragma: public');
+header ('Cache-Control: maxage=' . $expires);
+header ('Expires: ' . gmdate('D, d M Y H:i:s', time() + $expires) . ' GMT');
+header ('Content-Type: image/png');
+$zoom = intval ($_GET['z']);
+$column = intval ($_GET['x']);
+$row = pow (2, $zoom) - 1 - intval ($_GET['y']);
+$layer = $_GET['layer'];
+if (!$zoom || !$column || !$row || !$layer) exit();
+$db = new PDO ('sqlite:' . $layer . '.mbtiles');
+$data = $db->prepare ('SELECT tile_data FROM tiles WHERE zoom_level=' . $zoom . ' AND tile_column=' . $column . ' AND tile_row=' . $row);
+$data->execute();
+$png = $data->fetchObject();
+if (isset ($png->tile_data)) {
+	echo $png->tile_data;
+} else {
+	readfile ('256x256.png');
+}
 ?>
